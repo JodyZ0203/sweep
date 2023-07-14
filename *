@@ -1,0 +1,26 @@
+import gradio as gr
+import os
+
+def refresh_files():
+    """
+    This function fetches the latest files from the repository.
+    """
+    files = os.listdir('.')
+    return files
+
+def update_interface(files):
+    """
+    This function updates the Gradio interface with the fetched files.
+    """
+    gr.Interface.load_files(files)
+
+def main():
+    """
+    This function is the main entry point of the program.
+    It refreshes the files and updates the Gradio interface.
+    """
+    files = refresh_files()
+    update_interface(files)
+
+if __name__ == "__main__":
+    main()
